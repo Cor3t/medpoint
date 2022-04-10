@@ -20,7 +20,7 @@ class FirestoreService {
       var userData = await _userCollectionReference.doc(uid).get();
       return Individual.fromData(userData.data as Map<String, Object>);
     } catch (e) {
-      return print(e);
+      return e;
     }
   }
 }

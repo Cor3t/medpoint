@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:medpoint/component/button.dart';
 import 'package:medpoint/component/input_validation.dart';
 import 'package:medpoint/config/template.dart';
-import 'package:medpoint/screens/home.dart';
 import 'package:medpoint/state_management/login_provider.dart';
 import 'package:provider/provider.dart';
 
