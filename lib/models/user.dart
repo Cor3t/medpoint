@@ -1,8 +1,8 @@
 class Individual {
-  final String? id, firstname, lastname, gender, dateOfBirth, email;
+  final String? uid, firstname, lastname, gender, dateOfBirth, email;
 
   Individual({
-    this.id,
+    this.uid,
     this.firstname,
     this.lastname,
     this.gender,
@@ -10,8 +10,8 @@ class Individual {
     this.email,
   });
 
-  Individual.fromData(Map<String, dynamic> data)
-      : id = data["id"],
+  Individual.fromData(Map<String, dynamic>? data)
+      : uid = data!["id"],
         firstname = data["firstname"],
         lastname = data["lastname"],
         gender = data["gender"],
@@ -20,7 +20,7 @@ class Individual {
 
   Map<String, dynamic> toJson() {
     return {
-      "id": id,
+      "id": uid,
       "firstname": firstname,
       "lastname": lastname,
       "gender": gender,

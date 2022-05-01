@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:medpoint/state_management/login_provider.dart';
 
 class SignUpProvider extends LoginProvider {

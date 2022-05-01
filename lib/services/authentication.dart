@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:medpoint/locator.dart';
 import 'package:medpoint/models/user.dart';
-import 'package:medpoint/services/firestoreService.dart';
+import 'package:medpoint/services/firestore_service.dart';
 
 class AuthenticationHelper {
   final _firestoreService = locator<FirestoreService>();
@@ -24,7 +24,7 @@ class AuthenticationHelper {
       );
 
       await _firestoreService.createUser(Individual(
-          id: authResult.user!.uid,
+          uid: authResult.user!.uid,
           firstname: firstName,
           lastname: lastName,
           gender: gender,
@@ -33,7 +33,6 @@ class AuthenticationHelper {
 
       return null;
     } on FirebaseAuthException catch (e) {
-      print(e);
       return e.message;
     }
   }
@@ -41,11 +40,11 @@ class AuthenticationHelper {
   // SIGN IN METHOD
   Future signIn({String? email, String? password}) async {
     try {
-      await _auth.signInWithEmailAndPassword(
+      var result = await _auth.signInWithEmailAndPassword(
         email: email!,
         password: password!,
       );
-      return null;
+      return result.user;
     } on FirebaseAuthException catch (e) {
       return e.message;
     }

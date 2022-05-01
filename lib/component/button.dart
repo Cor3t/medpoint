@@ -5,13 +5,11 @@ import '../config/template.dart';
 class AppButton extends StatelessWidget {
   const AppButton({
     this.text,
-    this.buttonStyle,
     this.onPressed,
     Key? key,
   }) : super(key: key);
 
   final String? text;
-  final ButtonStyle? buttonStyle;
   final Function? onPressed;
 
   @override
@@ -22,7 +20,13 @@ class AppButton extends StatelessWidget {
       child: TextButton(
           onPressed: () => onPressed!(),
           child: Text(text!, style: buttonTextStyle),
-          style: buttonStyle),
+          style: TextButton.styleFrom(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(25)),
+            ),
+            backgroundColor: whiteColor,
+            primary: blackColor,
+          )),
     );
   }
 }

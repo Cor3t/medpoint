@@ -5,20 +5,23 @@ class FirestoreService {
   final CollectionReference _userCollectionReference =
       FirebaseFirestore.instance.collection("users");
 
+  // This method is used to create a new user in firebase and store the user's information
   Future createUser(Individual individual) async {
     try {
       await _userCollectionReference
-          .doc(individual.id)
+          .doc(individual.uid)
           .set(individual.toJson());
     } catch (e) {
       return e;
     }
   }
 
+  // The method is used to get the data of the user stored.
   Future getUser(String uid) async {
     try {
       var userData = await _userCollectionReference.doc(uid).get();
-      return Individual.fromData(userData.data as Map<String, Object>);
+      Map<String, dynamic> data = userData.data() as Map<String, dynamic>;
+      return data;
     } catch (e) {
       return e;
     }
