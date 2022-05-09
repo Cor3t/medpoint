@@ -4,7 +4,6 @@ import 'package:medpoint/component/appbar.dart';
 import 'package:medpoint/component/input_validation.dart';
 import 'package:medpoint/component/button.dart';
 import 'package:medpoint/component/screen_body.dart';
-import 'package:medpoint/locator.dart';
 import 'package:medpoint/services/authentication.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +28,7 @@ class SignUpState extends State<SignUp> with InputValidationMixin {
   TextEditingController dateController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  final _auth = locator<AuthenticationHelper>();
+  final _auth = AuthenticationHelper();
 
   // The key is assigned to the form for the register
   final _formKey = GlobalKey<FormState>(debugLabel: "register");

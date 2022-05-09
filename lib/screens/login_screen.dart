@@ -6,7 +6,6 @@ import 'package:medpoint/component/button.dart';
 import 'package:medpoint/component/input_validation.dart';
 import 'package:medpoint/component/screen_body.dart';
 import 'package:medpoint/config/template.dart';
-import 'package:medpoint/locator.dart';
 import 'package:medpoint/screens/home_screen.dart';
 import 'package:medpoint/screens/signup_screen.dart';
 import 'package:medpoint/services/authentication.dart';
@@ -28,7 +27,7 @@ class LoginState extends State<Login> with InputValidationMixin {
 
   // The key is assigned to the form for the login
   final _formKey = GlobalKey<FormState>(debugLabel: "login key");
-  final _auth = locator<AuthenticationHelper>();
+  final _auth = AuthenticationHelper();
 
   @override
   // This widget is the login screen of the application

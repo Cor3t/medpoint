@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:medpoint/component/screen_body.dart';
 import 'package:medpoint/component/search_setting.dart';
 import 'package:medpoint/config/template.dart';
-import 'package:medpoint/locator.dart';
 import 'package:medpoint/models/doctor.dart';
 import 'package:medpoint/screens/landing_screen.dart';
 import 'package:medpoint/services/authentication.dart';
@@ -19,7 +18,7 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
-  final _auth = locator<AuthenticationHelper>();
+  final _auth = AuthenticationHelper();
 
   @override
   Widget build(BuildContext context) {

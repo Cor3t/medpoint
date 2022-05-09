@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:medpoint/config/template.dart';
-import 'package:medpoint/locator.dart';
 import 'package:medpoint/screens/home_screen.dart';
 import 'package:medpoint/screens/landing_screen.dart';
 import 'package:medpoint/services/authentication.dart';
@@ -12,8 +11,7 @@ Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-  setUpLocator();
-  final _auth = await locator<AuthenticationHelper>().isUserLoggedIn();
+  final _auth = await AuthenticationHelper().isUserLoggedIn();
   runApp(MyApp(auth: _auth));
 }
 

@@ -1,10 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:medpoint/locator.dart';
 import 'package:medpoint/models/user.dart';
 import 'package:medpoint/services/firestore_service.dart';
 
 class AuthenticationHelper {
-  final _firestoreService = locator<FirestoreService>();
+  final _firestoreService = FirestoreService();
   final FirebaseAuth _auth = FirebaseAuth.instance;
   get user => _auth.currentUser;
 
